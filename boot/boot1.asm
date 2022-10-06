@@ -1,11 +1,11 @@
-org 0x00010000
+org 0x00010000 ; 0x00010000 -> 0xC0010000
 
 use32
 
 boot_magic:
     db "BOOT"
 boot_size:
-    dd finish - 0x00010000
+    dd finish - 0x00010000 ; 0x00010000 -> 0xC0010000
 boot_entry:
     dd start
 

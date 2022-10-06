@@ -50,17 +50,17 @@ start32:
     mov gs, ax
     
     mov esi, 0x00001000
-    mov edi, 0x00010000
+    mov edi, 0x00010000 ; 0x00010000 -> 0xC0010000
     call read_seg
     
-    cmp DWORD [0x00010000], 0x544F4F42
+    cmp DWORD [0x00010000], 0x544F4F42 ; 0x00010000 -> 0xC0010000
     jne .fail
     
-    mov esi, [0x00010004]
-    mov edi, 0x00011000
+    mov esi, [0x00010004] ; 0x00010004 -> 0xC0010004
+    mov edi, 0x00011000 ; 0x00011000 -> 0xC0011000
     call read_seg
     
-    jmp DWORD [0x00010008]
+    jmp DWORD [0x00010008] ; 0x00010008 -> 0xC0010008
 .fail:
     mov esi, msg_err
     mov ebx, 0x000B8000
